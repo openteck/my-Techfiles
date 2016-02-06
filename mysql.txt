@@ -1,0 +1,40 @@
+
+
+
+CREATE DATABASE demo;
+GRANT ALL ON demo.* TO user1@localhost IDENTIFIED BY 'redhat';
+
+
+ CREATE TABLE authors (id INT, name VARCHAR(20), email VARCHAR(20));
+
+INSERT INTO authors (id,name,email) VALUES(1,"Vivek","vivek@abc.com");
+
+
+
+
+ INSERT INTO authors (id,name,email) VALUES(2,"Priya","priya@gmail.com");
+ INSERT INTO authors (id,name,email) VALUES(3,"Tom","tom@yahoo.com");
+ INSERT INTO authors (id,name,email) VALUES(3,"Krishna","krish@gmail.com");
+ INSERT INTO authors (id,name,email) VALUES(3,"Raja","raja@yahoo.com");
+ INSERT INTO authors (id,name,email) VALUES(3,"sai","sai@yahoo.com");
+
+
+
+http://www.theopensourcerer.com/
+
+
+
+
+
+
+mysqldump -u root -p mydb >  mydb-backup.sql  --to taking backup of mydb.
+
+
+Note:- before u need to create db.from the name of backupdb.sql db name.
+
+mysql -u root -p mydb  < mydb-backup.sql     --to restore mydb  by using mydb-backukp.sql.
+
+
+
+
+

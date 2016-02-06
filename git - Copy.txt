@@ -1,0 +1,37 @@
+http://gxl-ct001.iteye.com/blog/2104130     -error solution
+
+
+root@rajaldap:/home/git/gitlab# sudo -u git -H bundle install --deployment --without development test postgres aws
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+An error occurred while installing json (1.7.7), and Bundler cannot continue.
+
+
+
+apt-get install ruby-dev
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Could not find activemodel-3.2.13 in any of the sources
+
+
+gem install activemodel -v 3.2.13
+
+
+
+/var/lib/gems/2.2.0/extensions/x86-linux/2.2.0/charlock_holmes-0.6.9.4/gem_make.out
+
+
+
+http://togakushi.bitbucket.org/build/html/msf_install.html --errors
+
+
+
+
+

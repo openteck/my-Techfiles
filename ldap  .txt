@@ -1,0 +1,93 @@
+yum -y install openldap openldap-clients openldap-servers
+
+
+slappasswd
+
+
+
+olcAccess: {0}to attrs=userPassword by self write by dn.base="cn=Manager,dc=ktree,dc=org" write by anonymous auth by * none
+olcAccess: {1}to * by dn.base="cn=Manager,dc=ktree,dc=org" write by self write by * read
+
+
+
+dn: dc=ktree,dc=org
+objectClass: dcObject
+objectClass: organization
+dc: ktree
+o : ktree
+
+
+ldapadd -f ktree.ldif -D cn=Manager,dc=ktree,dc=org -w redhat123
+ldapadd -f users.ldif -D cn=Manager,dc=ktree,dc=org -w redhat123
+
+
+
+ldapsearch -x -LLL -b dc=ktree,dc=org
+
+
+users.ldif
+
+dn: ou=Users,dc=ktree,dc=org
+objectClass: organizationalUnit
+ou: Users
+
+
+
+
+bob.ldif
+
+dn: cn=Bob Jones,ou=Users,dc=ktree,dc=org
+cn: Bob Jones
+sn: Jones
+objectClass: ktreeOrgPerson
+userPassword: redhat
+uid: bjones
+
+ldapadd -f bob.ldif -D cn=Manager,dc=ktree,dc=org -w redhat
+
+
+ldapadd -f raja.ldif -D cn=raja king,dc=ktree,dc=org -w redhat
+
+
+
+
+vi engineering.ldif
+
+
+dn: cn=Engineering,ou=Users,dc=ktree,dc=org
+cn: Engineering
+objectClass: groupOfNames
+member: cn=Bob Jones,ou=Users,dc=ktree,dc=org
+
+ldapadd -f engineering.ldif -D cn=Manager,dc=ktree,dc=org -w redhat
+
+
+vi addUserToGroup.ldif
+
+dn: cn=Engineering,ou=Users,dc=ktree,dc=org
+changetype: modify
+add: member
+member: cn=Al Smith,ou=Users,dc=ktree,dc=org
+
+ldapadd -f addUserToGroup.ldif -D cn=Manager,dc=ktree,dc=org -w redhat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

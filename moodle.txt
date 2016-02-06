@@ -1,0 +1,31 @@
+https://www.howtoforge.com/how-to-install-moodle-on-ubuntu-14.04
+
+install php
+
+apt-get install php5
+
+apt-get -y install graphviz aspell php5-pspell php5-curl php5-gd php5-int php5-mysql php5-xmlrpc php5-ldap git-core
+
+
+
+APACHE 
+apt-get install apache2 
+
+ mkdir /var/moodledata
+   chown -R www-data /var/moodledata
+   chown -R www-data /var/www/html/moodle
+   chmod -R 777 /var/moodledata
+   chmod -R 0755 /var/www/html/moodle
+
+MYSQL
+
+ apt-get install mysql-client mysql-server  
+
+
+
+create database moodle;
+  
+GRANT ALL ON moodle.* TO moodle@localhost IDENTIFIED BY 'redhat';
+
+
+
