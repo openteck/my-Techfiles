@@ -1,5 +1,97 @@
+rb81NwpkCADJIHQink0Fgr9NWzZivjMh
 
 
-tar -cvfz  /
 
-find  /backup/ARI-backups/*   -mtime +15  -exec -f {} ';' rm -f 
+laravel
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+composer update
+> php artisan clear-compiled
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Your requirements could not be resolved to an installable set of packages.
+
+  Problem 1
+    - guzzle/guzzle v3.9.3 requires ext-curl * -> the requested PHP extension curl is missing from your system.
+    - guzzle/guzzle v3.9.2 requires ext-curl * -> the requested PHP extension curl is missing from your system.
+    - guzzle/guzzle v3.9.1 requires ext-curl * -> the requested PHP extension curl is missing from your system.
+    - guzzle/guzzle v3.9.0 requires ext-curl * -> the requested PHP extension curl is missing from your system.
+    - guzzle/guzzle v3.8.1 requires ext-curl * -> the requested PHP extension curl is missing from your system.
+    - guzzle/guzzle v3.8.0 requires ext-curl * -> the requested PHP extension curl is missing from your system.
+    - guzzle/guzzle v3.7.4 requires ext-curl * -> the requested PHP extension curl is missing from your system.
+    - guzzle/guzzle v3.7.3 requires ext-curl * -> the requested PHP extension curl is missing from your system.
+    - guzzle/guzzle v3.7.2 requires ext-curl * -> the requested PHP extension curl is missing from your system.
+    - guzzle/guzzle v3.7.1 requires ext-curl * -> the requested PHP extension curl is missing from your system.
+    - guzzle/guzzle v3.7.0 requires ext-curl * -> the requested PHP extension curl is missing from your system.
+    - monarkee/bumble dev-master requires aws/aws-sdk-php 2.7.21 -> satisfiable by aws/aws-sdk-php[2.7.21].
+    - aws/aws-sdk-php 2.7.21 requires guzzle/guzzle ~3.7 -> satisfiable by guzzle/guzzle[v3.7.0, v3.7.1, v3.7.2, v3.7.3, v3.7.4, v3.8.0, v3.8.1, v3.9.0, v3.9.1, v3.9.2, v3.9.3].
+    - Installation request for monarkee/bumble dev-master -> satisfiable by monarkee/bumble[dev-master].
+
+  To enable extensions, verify that they are enabled in those .ini files:
+    - /etc/php5/cli/php.ini
+    - /etc/php5/cli/conf.d/05-opcache.ini
+    - /etc/php5/cli/conf.d/10-pdo.ini
+    - /etc/php5/cli/conf.d/20-json.ini
+    - /etc/php5/cli/conf.d/20-mcrypt.ini
+    - /etc/php5/cli/conf.d/20-readline.ini
+  You can also run `php --ini` inside terminal to see which files are used by PHP in CLI mode.
+root@gitlab:/var/www/project#
+
+
+apt-get install php5-curl
+
+
+
+https://laracasts.com/series/laravel-5-from-scratch/episodes/2 --video link
+
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+Application key [ayepX9AernfER9BhXS9zvUJNTWTT4hjk] set successfully.
+  project2
+
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+composer clear-cache
+
+ vim .bashrc
+
+
+
+export PATH="~/.composer/vendor/bin:$PATH"
+
+=====================================================================================================
+
+
+ apt-get install apache2
+  294  apt-get install libapache2-mod-php5
+  311  sudo apt-get install mcrypt php5-mcrypt
+  313  apt-get install php5-mcrypt
+  939  apt-get install rbenv
+  977  apt-get install php5-curl
+q
+
+
+
+
+
+
+
+
+
+
