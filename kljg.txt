@@ -85,6 +85,11 @@ export PATH="~/.composer/vendor/bin:$PATH"
   939  apt-get install rbenv
   977  apt-get install php5-curl
 q
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ php artisan serve --host 0.0.0.0
+
+
 
 
 
