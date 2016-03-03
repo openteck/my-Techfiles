@@ -88,6 +88,9 @@ q
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
  php artisan serve --host 0.0.0.0
+ 
+ 
+ http://serverfault.com/questions/581529/why-isnt-laravels-php-artisan-serve-server-being-accessible-from-the-www-on-ii
 
 
 
