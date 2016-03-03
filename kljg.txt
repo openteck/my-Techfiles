@@ -100,6 +100,9 @@ https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysq
 http://stackoverflow.com/questions/25591040/nginx-serves-php-files-as-downloads-instead-of-executing-them-php-file downloading instead of accessing.
 
 
+http://www.krizna.com/ubuntu/install-tomcat-7-ubuntu-14-04/
+
+
 
 
 
