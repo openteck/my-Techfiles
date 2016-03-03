@@ -100,8 +100,13 @@ https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysq
 http://stackoverflow.com/questions/25591040/nginx-serves-php-files-as-downloads-instead-of-executing-them-php-file downloading instead of accessing.
 
 
-http://www.krizna.com/ubuntu/install-tomcat-7-ubuntu-14-04/
+http://www.krizna.com/ubuntu/install-tomcat-7-ubuntu-14-04/  TOMCAT
 
+
+http://www.digitalwhores.net/ubuntu-2/redis-commander-how-to-install-on-utuntu-14-04-lts/ redis commender 
+
+
+http://www.cloudtuts.com/etherpad-lite/how-to-install-etherpad-lite-on-ubuntu/7/ 
 
 
 
