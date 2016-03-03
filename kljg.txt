@@ -92,6 +92,14 @@ q
  
  http://serverfault.com/questions/581529/why-isnt-laravels-php-artisan-serve-server-being-accessible-from-the-www-on-ii
 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-12-04 
+
+
+http://stackoverflow.com/questions/25591040/nginx-serves-php-files-as-downloads-instead-of-executing-them-php-file downloading instead of accessing.
+
+
 
 
 
