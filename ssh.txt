@@ -1,0 +1,137 @@
+SSH Passwordless Login Using SSH Keygen in 5 Easy Steps:-
+
+
+
+REF -URL'S :-
+
+
+http://www.beginninglinux.com/home/server-administration/openssh-keys-certificates-authentication-pem-pub-crt
+http://www.tecmint.com/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps/.
+
+sCENARIO 1
+
+
+FIRTST SCENARIO WE HATE TO  generate a pair of public keys using following command.IN SERVER SIDE 
+
+NOTE:- WE HAVE TO GENERATE CLIENT SIDE ALSO DIFENDING ON REQUIREMENT we can use.
+
+
+ssh-keygen -t rsa
+
+
+u can see to files.
+ 
+id_rsa  id_rsa.pub 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Create .ssh Directory on CLIENT SERVER UNDER USERHOME DIRECTORY.
+
+#mkdir /home/krishna/.ssh | touch authorized_keys.
+
+or 
+
+ssh sheena@192.168.0.11 mkdir -p .ssh.
+
+
+upload new generated public key (id_rsa.pub) on  client server  under sheena‘s(user's)  .ssh directory as a file name --->  authorized_keys.
+
+mannually or  " cat .ssh/id_rsa.pub | ssh sheena@clientserverip  'cat >> .ssh/authorized_keys' "
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Set permission like 
+
+
+chmod 700 .ssh; chmod 640 .ssh/authorized_keys"    on client side.
+
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ssh sheena@192.168.0.11   
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+SECOND SENARIO.
+
+1).
+
+
+ssh-keygen -t rsa -b 2048 -v           GENERATE A KEY CLIENT SIDE OR SERVER SIDE.
+
+
+You will be asked for a file name,    GIVE A FILE NAME LIKE test.
+
+it will generate a test file and the test  file without file extension, rename it to test.pem,
+
+u have two keyw in ur pwd.
+
+
+test.pem  test.pub.
+
+
+2) Uploading the generated certificate from client computer to server.
+
+
+mannuvally or  using this command "ssh-copy-id -i ~/test.pub root@12.34.56.78"(server ip).
+
+or 
+
+scp -vr test.pub   root@serverip:/root/.ssh/authorized_keys.
+
+
+check once key is copied or not in server side " now try to login with pem key.
+
+
+$ sudo ssh -i ~/hetzner.pem root@12.34.56.78.
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
