@@ -1,0 +1,93 @@
+http://xmodulo.com/speed-nginx-web-server-pagespeed.html
+
+
+https://developers.google.com/speed/pagespeed/module/config_filters#tuning
+
+
+
+http://www.tecmint.com/install-xcache-to-accelerate-and-optimize-php-performance/  xcache.
+
+
+http://askubuntu.com/questions/468894/install-php5-3-on-ubuntu-14-4  --php 5.3
+
+
+root@gitlab:/etc/nginx# ls
+fastcgi.conf          fastcgi_params          koi-utf  mime.types          nginx.conf          pagespeed.conf  scgi_params.default  sites-enabled  uwsgi_params.default
+fastcgi.conf.default  fastcgi_params.default  koi-win  mime.types.default  nginx.conf.default  scgi_params     sites-available      uwsgi_params   win-utf
+
+
+
+nginx.conf 
+
+    include /etc/nginx/sites-enabled/*;
+     include /etc/nginx/pagespeed.conf;
+
+
+
+
+
+
+
+cat /etc/nginx/pagespeed.conf 
+
+ # enable ngx_pagespeed
+        pagespeed on;
+        pagespeed FileCachePath    /var/ngx_pagespeed_cache;
+
+
+        # disable CoreFilters
+        pagespeed RewriteLevel PassThrough;
+
+        # enable collapse whitespace filter
+        pagespeed EnableFilters collapse_whitespace;
+
+        # enable JavaScript library offload
+        pagespeed EnableFilters canonicalize_javascript_libraries;
+
+        # combine multiple CSS files into one
+        pagespeed EnableFilters combine_css;
+
+        # combine multiple JavaScript files into one
+        pagespeed EnableFilters combine_javascript;
+
+        # remove tags with default attributes
+        pagespeed EnableFilters elide_attributes;
+
+        # improve resource cacheability
+        pagespeed EnableFilters extend_cache;
+
+        # flatten CSS files by replacing @import with the imported file
+        pagespeed EnableFilters flatten_css_imports;
+        pagespeed CssFlattenMaxBytes 5120;
+
+        # defer the loading of images which are not visible to the client
+        pagespeed EnableFilters lazyload_images;
+
+        # enable JavaScript minification
+        pagespeed EnableFilters rewrite_javascript;
+
+        # enable image optimization
+        pagespeed EnableFilters rewrite_images;
+
+        # pre-solve DNS lookup
+        pagespeed EnableFilters insert_dns_prefetch;
+
+        
+        # rewrite CSS to load page-rendering CSS rules first.
+        pagespeed EnableFilters prioritize_critical_css;
+
+        #aditional sped
+         pagespeed CustomFetchHeader CustomHeader CustomHeaderValue;
+         pagespeed CustomFetchHeader AnotherCustomHeader AnotherValue;
+
+
+
+
+
+
+
+
+
+
+
+
