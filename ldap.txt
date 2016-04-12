@@ -1,1 +1,4 @@
 http://docs.adaptivecomputing.com/viewpoint/hpc/Content/topics/1-setup/installSetup/settingUpOpenLDAPOnCentos6.htm
+
+
+http://www.unixmen.com/install-openldap-in-ubuntu-15-10-and-debian-8/
