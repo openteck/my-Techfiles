@@ -5,3 +5,12 @@ http://www.unixmen.com/install-openldap-in-ubuntu-15-10-and-debian-8/
 
 http://pig.made-it.com/ldap-sudoers.html
 http://www.sudo.ws/man/1.8.16/sudoers.ldap.man.html
+
+ldapsearch -x        to check the ldapserver functionalaty.
+
+
+ref url:http://naidutrk.blogspot.in/2012/04/making-sudo-command-work-for-ldap-users.html
+
+
+
+  
