@@ -3,5 +3,5 @@ http://docs.adaptivecomputing.com/viewpoint/hpc/Content/topics/1-setup/installSe
 
 http://www.unixmen.com/install-openldap-in-ubuntu-15-10-and-debian-8/
 
-
+http://pig.made-it.com/ldap-sudoers.html
 http://www.sudo.ws/man/1.8.16/sudoers.ldap.man.html
