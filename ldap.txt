@@ -14,3 +14,4 @@ ref url:http://naidutrk.blogspot.in/2012/04/making-sudo-command-work-for-ldap-us
 
 
   
+http://www.malaya-digital.org/configure-ldap-for-sudo-support-in-ubuntu-server-11-04-64-bit/
