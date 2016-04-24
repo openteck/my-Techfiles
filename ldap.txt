@@ -15,3 +15,213 @@ ref url:http://naidutrk.blogspot.in/2012/04/making-sudo-command-work-for-ldap-us
 
   
 http://www.malaya-digital.org/configure-ldap-for-sudo-support-in-ubuntu-server-11-04-64-bit/
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+STEP  1
+SERVER SIDE CONFIGURATION.
+1.	Install sudo-ldap packge (you will need  drop fully into rood mode for this part)
+               Sudo su
+2.	Turn off sudo safety switch.
+               Export SUDO_FORCE_REMOVE=yes
+3.	Get the package.
+       Apt-get install sudo-ldap.
+4.	Turn on sudo safety switch.
+               Export SUDO_FORCE_REMOVE=no
+5.	Exit.
+
+STEP 2 
+2.) Prime LDAP to support SUDO functions with the sudo.schema      
+I. Create a directory to work out of
+mkdir ~/sudoWork.
+II. Copy the sudo Schema into the LDAP schema repository
+Code:													sudo cp  /usr/share/doc/sudo-ldap/schema.OpenLDAP   /etc/ldap/schema/sudo.schema.
+III. Create a conversion file for schema
+Code:
+sudo echo "include /etc/ldap/schema/sudo.schema" > ~/sudoWork/sudoSchema.conf
+
+
+
+
+
+
+
+V. Clean-up outputted file (it will contain items that will break existing database if not removed!)
+Code:
+Vi m  ~/sudoWork/cn\=sudo.ldif
+And insure top of file looks EXACTLY like this:
+Code:
+dn: cn=sudo,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: sudo
+.. And insure bottom of file has ALL of the following need to removed
+Code:
+structuralObjectClass: olcSchemaConfig							                 entryUUID: 10dae0ea-0760-102d-80d3-f9366b7f7757                                                                     creatorsName: cn=config                                                                                                                 createTimestamp: 20080826021140Z
+entryCSN: 20080826021140.791425Z#000000#000#000000
+modifiersName: cn=config
+modifyTimestamp: 20080826021140Z
+Note :- We need to remove above code in cn\=sudo.ldif" file.
+
+VI. Now load this schema into the LDAP server
+Code:
+ldapadd -Y EXTERNAL -H ldapi:/// -f  ~/sudoWork/cn\=sudo.ldif
+/etc/init.d/slapd restart.
+
+
+
+
+Step 3 
+14] Create a  sudoMaster.ldif file under the ~/sudowork directory….its  containing the following(make sure there are 2 new lines at the end of the file!):
+Vim  sudoMaster.ldif
+dn: ou=SUDOers,dc=ktree,dc=org
+objectclass: organizationalUnit
+objectclass: top
+ou: SUDOers
+Set the sudo base path:- 
+# SUDOERS_BASE=ou=SUDOers,dc=ktree,dc=org
+#export SUDOERS_BASE
+
+ Enter the following command in one line only:
+ cd /usr/share/doc/sudo-ldap/
+ gunzip sudoers2ldif.gz
+perl /usr/share/doc/sudo-ldap/sudoers2ldif /etc/sudoers >> ~/sudoWork/sudoMaster.ldif
+                                                                                                                                   Enter the following command in one line only:
+ldapadd -f /tmp/sudoWork/sudoMaster.ldif -D "cn=admin,dc=micbal,dc=net" -W -x
+
+ /etc/init.d/slapd restart
+Client configuration
+
+1] sudo su
+2] export SUDO_FORCE_REMOVE=yes
+3] apt-get install sudo-ldap
+4] export SUDO_FORCE_REMOVE=no
+5] echo "sudoers_base ou=SUDOers,dc=micbal,dc=net" >> /etc/ldap.conf
+6] ln -sf /etc/ldap.conf /etc/sudo-ldap.conf
+7] echo "sudoers: ldap" >> /etc/nsswitch.conf
+8] shutdown -r now
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Configure LDAP for sudo support in Ubuntu Server / Desktop 11.04 64-bit
+Friday, August 26th, 2011 | Systems Administration, Ubuntu Server
+Author: Michael Balcos
+This guide assumes that you've setup a LDAP server and client as described in http://www.malaya-digital.org/setup-ldap-server-and-client-using-ubuntu-11-04-server-64-bit-minimal-installation/ . Some of the assumptions include:
+1] Current "Base" is "dc=micbal,dc=net"
+2] LDAP Administrator is "dn=admin,dc=micbal,dc=net"
+3] LDAP Server is listening on "192.168.1.2"
+
+Server configuration
+1] sudo su
+2] export SUDO_FORCE_REMOVE=yes
+3] apt-get install sudo-ldap
+4] export SUDO_FORCE_REMOVE=no
+6] mkdir /tmp/sudoWork
+7] cp /usr/share/doc/sudo-ldap/schema.OpenLDAP /etc/ldap/schema/sudo.schema
+8] Create a /tmp/sudoWork/schema_convert.conf file, and it must contain the following:
+include /etc/ldap/schema/core.schema
+include /etc/ldap/schema/collective.schema
+include /etc/ldap/schema/corba.schema
+include /etc/ldap/schema/cosine.schema
+include /etc/ldap/schema/duaconf.schema
+include /etc/ldap/schema/dyngroup.schema
+include /etc/ldap/schema/inetorgperson.schema
+include /etc/ldap/schema/java.schema
+include /etc/ldap/schema/ldapns.schema
+include /etc/ldap/schema/misc.schema
+include /etc/ldap/schema/nis.schema
+include /etc/ldap/schema/openldap.schema
+include /etc/ldap/schema/pmi.schema
+include /etc/ldap/schema/ppolicy.schema
+include /etc/ldap/schema/sudo.schema
+9] mkdir /tmp/sudoWork/ldif_output
+10] Enter the following command in one line only:
+slapcat -f /tmp/sudoWork/schema_convert.conf -F /tmp/sudoWork/ldif_output -n0 -s "cn={14}sudo,cn=schema,cn=config" > /tmp/sudoWork/cn\=sudo.ldif
+11] Edit the generated /tmp/sudoWork/cn\=sudo.ldif file, and remove all occurences of "{14}". Then remove something like following at the bottom of the file:
+structuralObjectClass: olcSchemaConfig
+entryUUID: 10dae0ea-0760-102d-80d3-f9366b7f7757
+creatorsName: cn=config
+createTimestamp: 20080826021140Z
+entryCSN: 20080826021140.791425Z#000000#000#000000
+modifiersName: cn=config
+modifyTimestamp: 20080826021140Z
+12] ldapadd -Y EXTERNAL -H ldapi:/// -f /tmp/sudoWork/cn\=sudo.ldif
+13] /etc/init.d/slapd restart
+14] Create a /tmp/sudoWork/sudoMaster.ldif file containing the following(make sure there are 2 new lines at the end of the file!):
+dn: ou=SUDOers,dc=micbal,dc=net
+objectclass: organizationalUnit
+objectclass: top
+ou: SUDOers
+15] SUDOERS_BASE=ou=SUDOers,dc=micbal,dc=net
+16] export SUDOERS_BASE
+17] Enter the following command in one line only:
+perl /usr/share/doc/sudo-ldap/sudoers2ldif /etc/sudoers >> /tmp/sudoWork/sudoMaster.ldif
+18] Enter the following command in one line only:
+ldapadd -f /tmp/sudoWork/sudoMaster.ldif -D "cn=admin,dc=micbal,dc=net" -W -x
+19] /etc/init.d/slapd restart
+Client configuration
+1] sudo su
+2] export SUDO_FORCE_REMOVE=yes
+3] apt-get install sudo-ldap
+4] export SUDO_FORCE_REMOVE=no
+5] echo "sudoers_base ou=SUDOers,dc=micbal,dc=net" >> /etc/ldap.conf
+6] ln -sf /etc/ldap.conf /etc/sudo-ldap.conf
+7] echo "sudoers: ldap" >> /etc/nsswitch.conf
+8] shutdown -r now
+9] To add an user to the sudoers, open in a browser http://192.168.1.2/phpldap admin. Then expand "dc=micbal,dc=net". Then expand "ou=People". Then click on "Create new entry here". Then select "Generic: User Account" under "Templates:". Supply the requested information. You can keep the default "md5" option in the "Password" section. But change "GID Number" to "users", and "Login shell" to "/bin/sh". Then click "Create Object". Then click "Commit". Then expand "ou-SUDOers". Click on "Create new entry here". Then click on "Default". Select "sudoRole" in "ObjectClasses". Then click on "Proceed". Select "cn (cn)" in "RDN". "cn" field is recommended to contain the "User ID" you created in this step under "ou=People". Set "sudoCommand" to "ALL", "sudoHost" to "ALL", and "sudoUser" to the user id (as shown under craetion in phpldapadmin) being granted sudo access. Then click "Create Object".
+13] /etc/init.d/slapd restart
+14] Create a /tmp/sudoWork/sudoMaster.ldif file containing the following(make sure there are 2 new lines at the end of the file!):
+dn: ou=SUDOers,dc=micbal,dc=net
+objectclass: organizationalUnit
+objectclass: top
+ou: SUDOers
+15] SUDOERS_BASE=ou=SUDOers,dc=micbal,dc=net
+16] export SUDOERS_BASE
+17] Enter the following command in one line only:
+perl /usr/share/doc/sudo-ldap/sudoers2ldif /etc/sudoers >> /tmp/sudoWork/sudoMaster.ldif
+18] Enter the following command in one line only:
+ldapadd -f /tmp/sudoWork/sudoMaster.ldif -D "cn=admin,dc=micbal,dc=net" -W -x
+
+root@ldap:~/sudoWork# ldapadd -f ~/sudoWork/sudoMaster.ldif -D "cn=admin,dc=ktree,dc=org" -W -x
+Enter LDAP Password:
+adding new entry "ou=SUDOers,dc=ktree,dc=org"
+adding new entry "cn=defaults,ou=SUDOers,dc=ktree,dc=org"
+adding new entry "cn=root,ou=SUDOers,dc=ktree,dc=org"
+adding new entry "cn=%admin,ou=SUDOers,dc=ktree,dc=org"
+adding new entry "cn=%sudo,ou=SUDOers,dc=ktree,dc=org"
+root@ldap:~/sudoWork#
+19] /etc/init.d/slapd restart
+
+
+
+
+
+
+
+
+
+
+
