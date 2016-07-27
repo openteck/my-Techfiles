@@ -95,6 +95,13 @@ http://www.webhostingtalk.com/showthread.php?t=1528610   --imagemagic......
 
 
 
+http://tecadmin.net/install-imagemagick-on-centos-rhel/    --imagemagic....
+
+http://serverfault.com/questions/446474/install-recent-imagemagick-on-centos-6-3 -----rpm
+
+
+
+
 
 
 
