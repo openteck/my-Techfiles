@@ -89,6 +89,8 @@ http://www.jamescoyle.net/knowledge/951-the-difference-between-a-tmpfs-and-ramfs
 
 
 
+http://www.webhostingtalk.com/showthread.php?t=1528610   --imagemagic......
+
 
 
 
