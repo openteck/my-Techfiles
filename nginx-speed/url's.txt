@@ -23,6 +23,15 @@ fastcgi.conf.default  fastcgi_params.default  koi-win  mime.types.default  nginx
 
 nginx.conf 
 
+
+
+
+http://stackoverflow.com/questions/5663814/how-do-i-get-wkhtmltopdf-to-execute-via-php   wkhtml2pdf   links
+
+
+
+
+
     include /etc/nginx/sites-enabled/*;
      include /etc/nginx/pagespeed.conf;
 
