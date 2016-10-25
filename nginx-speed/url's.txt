@@ -112,5 +112,7 @@ http://serverfault.com/questions/446474/install-recent-imagemagick-on-centos-6-3
 
 http://stackoverflow.com/questions/28362735/openldap-bdb-log-file-maintenance-and-auto-removal  -ldap log file removal
 
+http://www.tonmann.com/2016/04/remove-obsolete-log-files-from-openldap-db-folder/   ldap ref url to remove logs.
+
 
 
