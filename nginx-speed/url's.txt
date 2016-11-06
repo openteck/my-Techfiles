@@ -115,4 +115,10 @@ http://stackoverflow.com/questions/28362735/openldap-bdb-log-file-maintenance-an
 http://www.tonmann.com/2016/04/remove-obsolete-log-files-from-openldap-db-folder/   ldap ref url to remove logs.
 
 
+http://www.linuxforums.org/forum/programming-scripting/153895-c-how-tell-whether-kernel-dropping-udp-packets-size-used-recv-buffer.html --snmp issue
+
+
+https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk38936
+
+
 
