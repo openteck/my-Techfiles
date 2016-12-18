@@ -24,7 +24,7 @@ pause
 
 :: set backup directory which u want to take backup.
 
-::set backupfldr="D:\vsongs"
+set backupfldr="D:\Majnu (2016) ~320Kbps"
 
 :: set a path to same the backup .zip file.
 
@@ -70,11 +70,24 @@ echo "Syncing data to s3"
 pushd %datafldr%
 
 
-aws s3 sync  "F:\backup\"   s3://mytes 
+::aws s3 sync  "F:\backup\"   s3://mytes 
 
 
 echo "pushing data completed"
 
+:: Number of days to retain .zip backup files 
+set retaindays=5
+
+echo "Deleting zip files older than 30 days now"
+
+:: turn on if you are debugging
+@echo on
+
+:: Delete Files Older than 5 Days  in backup path 
+
+forfiles -p "F:\backup" -s -m *.* -d -5 -c "cmd /c del @path"
+
+pause
 
 ::aws s3 sync  "F:\backup"   s3://mytes 
 ::aws s3 sync  "F:\backup"   s3://mytes 
