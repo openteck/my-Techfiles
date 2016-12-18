@@ -120,5 +120,6 @@ http://www.linuxforums.org/forum/programming-scripting/153895-c-how-tell-whether
 
 https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk38936
 
+http://kb.digium.com/articles/Configuration/How-to-manually-configure-Polycom-phone-via-web-interface --config ip phone....
 
 
