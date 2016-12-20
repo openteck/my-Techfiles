@@ -122,4 +122,6 @@ https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewso
 
 http://kb.digium.com/articles/Configuration/How-to-manually-configure-Polycom-phone-via-web-interface --config ip phone....
 
+https://www.cloudcall.com/support/how-to/PDFfiles/ht_50_Polycom%20IP331%20-%20SYNETY%20Configuration%20guide.pdf
+
 
