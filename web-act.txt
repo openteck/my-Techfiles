@@ -1,0 +1,10 @@
+1.Java versions
+
+2. mysql versions
+
+3. set openfiles limit and server level optmization
+
+4.https://dev.liferay.com/discover/portal/-/knowledge_base/6-2/server-administration
+
+
+http://stackoverflow.com/questions/9124217/how-to-migrate-liferay-portal-from-one-windows-machine-to-other

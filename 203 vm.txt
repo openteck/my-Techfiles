@@ -1,0 +1,116 @@
+
+apache vhost 
+
+http://serverfault.com/questions/203550/htaccess-is-ignored-even-though-virtualhost-has-allowoverride-all
+
+
+root@ubuntu:~# apt-get remove ubuntu-release-upgrader-core
+Reading package lists... Done
+
+
+
+sudo apt-get install apache2 php5 libapache2-mod-php5
+
+
+check php modules is enabled or not
+
+root@ubuntu:/var/www/html/vanhie# a2query -m php5
+php5 (enabled by maintainer script)
+root@ubuntu:/var/www/html/vanhie#
+
+
+enable rewrite modules
+
+
+  service apache2 restart
+
+sudo a2enmod rewrite
+
+
+
+
+
+
+
++++++++++++++++++++++++++++++++++++
+
+
+update core_config_data set value = 'http://domainname/' where path = 'web/unsecure/base_url';
+
+
+error:-2
+
+ 'ExpiresActive', perhaps misspelled or defined by a module not included in the server configuration
+
+root@ubuntu:/var/www/html/vanhie# a2enmod headers
+Enabling module headers.
+To activate the new configuration, you need to run:
+  service apache2 restart
+root@ubuntu:/var/www/html/vanhie# service apache2 restart
+ * Restarting web server apache2                                                                                                                                                                     AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
+                                                                                                                                                                                              [ OK ]
+root@ubuntu:/var/www/html/vanhie#
+
+
+
+
+
+root@ubuntu:/var/www/html/vanhie# sudo a2enmod expires
+Enabling module expires.
+To activate the new configuration, you need to run:
+  service apache2 restart
+root@ubuntu:/var/www/html/vanhie# service apache2 restart
+ * Restarting web server apache2                                                                                                                                                                     AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
+                                                                                                                                                                                              [ OK ]
+root@ubuntu:/var/www/html/vanhie#
+
+
+Ref:- 
+
+http://askubuntu.com/questions/451708/php-script-not-executing-on-apache-server
+http://dannytsang.co.uk/invalid-command-expiresactive/
+http://stackoverflow.com/questions/15714071/htaccess-file-set-up-on-ubuntu-12-10
+
+http://stackoverflow.com/questions/19994922/find-and-replace-strings-in-vim-on-multiple-lines
+http://stackoverflow.com/questions/10185717/internal-server-error-htaccess
+
+
+
+
+
+++++++++++++++++++++++++++++++++
+
+
+mysql> select * from core_config_data where path like '%base%url%';
++-----------+---------+----------+-----------------------------+------------------------------+
+| config_id | scope   | scope_id | path                        | value                        |
++-----------+---------+----------+-----------------------------+------------------------------+
+|       815 | default |        0 | web/unsecure/base_link_url  | {{unsecure_base_url}}        |
+|       816 | default |        0 | web/unsecure/base_skin_url  | {{unsecure_base_url}}skin/   |
+|       817 | default |        0 | web/unsecure/base_media_url | {{unsecure_base_url}}media/  |
+|       818 | default |        0 | web/unsecure/base_js_url    | {{unsecure_base_url}}js/     |
+|       819 | default |        0 | web/secure/base_link_url    | {{secure_base_url}}          |
+|       820 | default |        0 | web/secure/base_skin_url    | {{secure_base_url}}skin/     |
+|       821 | default |        0 | web/secure/base_media_url   | {{secure_base_url}}media/    |
+|       822 | default |        0 | web/secure/base_js_url      | {{secure_base_url}}js/       |
+|      1519 | default |        0 | web/unsecure/base_url       | https://www.vanhie.be/       |
+|      1520 | default |        0 | web/secure/base_url         | https://www.vanhie.be/       |
+|      1962 | stores  |        2 | web/unsecure/base_link_url  | https://www.vanhie.be/fr-be/ |
+|      2012 | stores  |        2 | web/secure/base_link_url    | https://www.vanhie.be/fr-be/ |
+|      2598 | stores  |        3 | web/secure/base_url         | https://www.vanhie.be/       |
+|      2599 | stores  |        1 | web/secure/base_url         | https://www.vanhie.be/       |
++-----------+---------+----------+-----------------------------+------------------------------+
+14 rows in set (0.01 sec)
+
+mysql>
+
+update core_config_data set value = 'http://vanhiestaging.ktree.org/fr-be/' where path = 'web/unsecure/base_link_url';
+update core_config_data set value = 'http://vanhiestaging.ktree.org/fr-be/' where path = 'web/secure/base_link_url';
+
+
+
+
+flush magento cache 
+
+
+redis-cli -r 1 flushall
