@@ -1,4 +1,26 @@
 
+
+
+
+
+http://stackoverflow.com/questions/19916906/nginx-managed-ssl-with-tomcat-7
+https://devtidbits.com/2015/12/08/nginx-as-a-reverse-proxy-to-apache-tomcat/
+
+https://www.mkyong.com/nginx/nginx-apache-tomcat-configuration-example/
+https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-with-ssl-as-a-reverse-proxy-for-jenkins
+
+
+
+
+
+
+
+
+
+
+
+
+
 apache vhost 
 
 http://serverfault.com/questions/203550/htaccess-is-ignored-even-though-virtualhost-has-allowoverride-all
