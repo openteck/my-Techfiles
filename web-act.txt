@@ -8,3 +8,33 @@
 
 
 http://stackoverflow.com/questions/9124217/how-to-migrate-liferay-portal-from-one-windows-machine-to-other
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Migrate liferay data to new linux instance
+
+take db backup and migrate and dump into linux machine.
+
+clear temp directory before starting tomcat.
+
+take server.xml and portal properties file from .....backup workspace.
+
+
+change nginx config to rewrite the new url.
+
+
+verify security groups what ever we have in old productions and apply same.
+
+
+Verify configurations and security groups 
+
+
+
+verify open files limits and ..apply kernel twicktes.
+
+
+finally restart the server .
+
+
