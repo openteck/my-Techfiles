@@ -42,3 +42,8 @@ https://www.sslshopper.com/tomcat-ssl-installation-instructions.html
 https://in.godaddy.com/help/tomcat-generate-csrs-and-install-certificates-5239
 
 
+https://forums.aws.amazon.com/thread.jspa?messageID=263226
+http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html
+
+http://www.somacon.com/p580.php
+
