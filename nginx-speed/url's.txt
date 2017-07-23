@@ -1,4 +1,20 @@
 
+
+
+https://dev.mysql.com/doc/refman/5.7/en/using-secure-connections.html mysql with ssl
+
+https://www.percona.com/blog/2017/06/27/ssl-connections-in-mysql-5-7/
+
+
+https://serverfault.com/questions/770618/how-to-disable-ssl-plugin-on-mysql-5-7-server
+
+
+
+https://www.digitalocean.com/community/tutorials/how-to-configure-ssl-tls-for-mysql-on-ubuntu-16-04
+
+
+
+
 https://support.combell.com/en/how-do-i-upload-my-site-ftp/38
 
 
