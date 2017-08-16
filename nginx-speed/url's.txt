@@ -1,4 +1,11 @@
 
+https://wiki.zimbra.com/wiki/Ajcody-How-To-Setup-sendAs-Right-And-Persona-For-Internal-Users
+
+https://wiki.zimbra.com/wiki/Ajcody-How-To-Setup-sendOnBehalfOf-Right-And-Persona-For-Internal-Users
+
+zimbra
+
+
 
 
 https://dev.mysql.com/doc/refman/5.7/en/using-secure-connections.html mysql with ssl
