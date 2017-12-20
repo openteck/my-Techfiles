@@ -169,5 +169,6 @@ https://stackoverflow.com/questions/26254767/ldap-users-not-able-to-change-their
 
 https://blog.suretec.net/archives/152-OpenLDAP-Quick-Tips-Testing-your-Access-Control-Lists-ACLs.html
 https://www.serverwatch.com/tutorials/article.php/3776141/LDAP-Master-Server-Problems.htm  
+http://easylinuxtutorials.blogspot.in/2013/11/multi-master-replication-of-openldap.html
 
 
