@@ -152,3 +152,21 @@ http://kb.digium.com/articles/Configuration/How-to-manually-configure-Polycom-ph
 https://www.cloudcall.com/support/how-to/PDFfiles/ht_50_Polycom%20IP331%20-%20SYNETY%20Configuration%20guide.pdf
 
 
+
+
+
+
+
+
+https://forums.fedoraforum.org/showthread.php?305291-LDAP-authentication-passwd-returns-quot-Authentication-token-manipulation-error-quot Ldap-ref link
+
+https://pagure.io/SSSD/sssd/issue/2204
+
+https://askubuntu.com/questions/512766/sssd-password-change-not-working-with-ldap-backend
+
+https://stackoverflow.com/questions/26254767/ldap-users-not-able-to-change-their-password-using-passwd-command
+
+
+https://blog.suretec.net/archives/152-OpenLDAP-Quick-Tips-Testing-your-Access-Control-Lists-ACLs.html
+
+
