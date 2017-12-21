@@ -172,3 +172,22 @@ https://www.serverwatch.com/tutorials/article.php/3776141/LDAP-Master-Server-Pro
 http://easylinuxtutorials.blogspot.in/2013/11/multi-master-replication-of-openldap.html
 
 
+
+
+
+
+
+
+
+new
+
+
+https://unix.stackexchange.com/questions/11549/howto-set-access-control-lists-acls-in-openldap
+
+http://etutorials.org/Server+Administration/ldap+system+administration/Part+I+LDAP+Basics/Chapter+3.+OpenLDAP/3.6+Access+Control+Lists+ACLs/
+
+https://www.linuxquestions.org/questions/linux-server-73/ldap-user-not-able-to-change-own-password-940676/
+
+
+https://github.com/nextcloud/server/issues/3200
+
