@@ -190,4 +190,5 @@ https://www.linuxquestions.org/questions/linux-server-73/ldap-user-not-able-to-c
 
 
 https://github.com/nextcloud/server/issues/3200
+https://www.openldap.org/lists/openldap-technical/201512/msg00139.html
 
