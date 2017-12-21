@@ -192,3 +192,25 @@ https://www.linuxquestions.org/questions/linux-server-73/ldap-user-not-able-to-c
 https://github.com/nextcloud/server/issues/3200
 https://www.openldap.org/lists/openldap-technical/201512/msg00139.html
 
+
+
+Errors:- 
+
+new master and slave.
+
+Dec 21 19:28:26 ldap-slave slapd[2952]: slap_client_connect: URI=ldap://ldap.aapa.com:389 DN="cn=manager,dc=aapa,dc=com" ldap_sasl_bind_s failed (-1)
+Dec 21 19:28:26 ldap-slave slapd[2952]: do_syncrepl: rid=000 rc -1 retrying
+
+
+
+
+when connecting to from client getting 
+
+Dec 21 19:11:27 ldap-slave slapd[2893]: conn=1001 op=0 RESULT oid= err=0 text=
+Dec 21 19:11:27 ldap-slave slapd[2893]: conn=1001 fd=21 closed (TLS negotiation failure)
+Dec 21 19:11:27 ldap-slave slapd[2893]: conn=1000 op=4 UNBIND
+Dec 
+
+
+
+
