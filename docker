@@ -1,0 +1,74 @@
+docker tag bb38976d03cf yourhubusername/verse_gapminder:firsttry
+
+
+docker build -t "appscloudit/appscloud-docker-hub:aapa-xml-query-tool" .
+
+
+
+
+docker tag  3f787e6f4a59    test/:aapa-xml-query-tool
+
+
+
+docker tag  3f787e6f4a59  ktreeit/ktree-docker-hub:aapa-xml-query-tool  
+
+
+
+docker push  ktreeit/ktree-docker-hub	
+
+
+
+
+
+
+
+root@ubuntu:~# docker image  pull ktreeit/ktree-docker-hub:aapa-xml-query-tool
+
+
+After build the latest image 
+
+
+
+
+Pull the docker image  with tag name
+
+
+root@ubuntu:~# docker image  pull ktreeit/ktree-docker-hub:aapa-xml-query-tool
+aapa-xml-query-tool: Pulling from ktreeit/ktree-docker-hub
+4fe2ade4980c: Already exists
+6fc58a8d4ae4: Already exists
+fe815adf554b: Already exists
+3618dff8f64e: Pull complete
+Digest: sha256:4ea6c7af68e045a127e291d3dac65534985722ea9cd8114cc631a3f82295d06a
+Status: Downloaded newer image for ktreeit/ktree-docker-hub:aapa-xml-query-tool
+root@ubuntu:~#
+
+
+root@ubuntu:~# docker ps -a
+CONTAINER ID        IMAGE                                          COMMAND                  CREATED             STATUS                       PORTS               NAMES
+98264b1a8cdd        ktreeit/ktree-docker-hub:aapa-xml-query-tool   "java -Djava.securit…"   6 minutes ago       Exited (143) 2 minutes ago                       upbeat_beaver
+root@ubuntu:~# docker
+docker                  docker-containerd-ctr   dockerd                 docker-proxy
+docker-containerd       docker-containerd-shim  docker-init             docker-runc
+root@ubuntu:~# docker rm 98264b1a8cdd
+98264b1a8cdd
+root@ubuntu:~#
+
+root@ubuntu:~# docker run -p  8080:8080 -t ktreeit/ktree-docker-hub:aapa-xml-query-tool
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.0.5.RELEASE)
+
+2018-09-26 11:02:35.333  INFO 1 --- [           main] c.a.x.XmlQueryToolApplication            : Starting XmlQueryToolApplication v0.0.1-SNAPSHOT on e4b6de30bf33 with PID 1 (/app.jar started by root in /)
+2018-09-26 11:02:35.353 DEBUG 1 --- [           main] c.a.x.XmlQueryToolApplication            : Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.6.RELEASE
+2018-09-26 11:02:35.396  INFO 1 --- [           main] c.a.x.XmlQueryToolApplication            : No active profile set, falling back to default profiles: default
+2018-09-26 11:02:36.087  INFO 1 --- [           main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@769c9116: startup date [Wed Sep 26 11:02:36 GMT 2018]; root of context hierarchy
+
+
+
+https://github.com/spring-guides/gs-spring-boot-docker/issues/2
